@@ -5,6 +5,9 @@ const users = require('./controllers/users.js')
 const todos = require('./controllers/todos.js')
 const auth = require('./middleware/auth')
 
+const cors = require('cors')
+router.all('*', cors())
+
 router.get('/users', auth, users.getUser)
 router.post('/users/login', users.login)
 router.post('/users/logout', auth, users.logout)
